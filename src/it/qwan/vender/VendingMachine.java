@@ -1,4 +1,4 @@
-﻿package it.qwan.vender;
+package it.qwan.vender;
 
 import java.util.HashMap;
 import java.util.Map;

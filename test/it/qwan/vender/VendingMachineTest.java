@@ -1,4 +1,4 @@
-﻿package it.qwan.vender;
+package it.qwan.vender;
 import static org.junit.Assert.*;
 import it.qwan.vender.Can;
 import it.qwan.vender.Chipknip;

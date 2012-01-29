@@ -1,4 +1,4 @@
-﻿package it.qwan.vender;
+package it.qwan.vender;
 
 public class CanContainer {
 	private Can type;
