@@ -2,7 +2,7 @@
 
 var buster = require("buster");
 var vending = require("../lib/vending");
-//var misc = require("../lib/can");
+var misc = require("../lib/can");
 
 buster.spec.expose(); //expose spec functions describe() and it()
 
@@ -35,7 +35,7 @@ describe("Vendingmachine", function () {
 
 	it("choiceless_machine_delivers_nothing", function () {
 		assert(machine.deliver());
-	//	expect(Can.none).toEqual(machine.deliver(Choice.cola));
+//		expect(Can.none).toEqual(machine.deliver(Choice.cola));
 	//	expect(Can.none).toEqual(machine.deliver(Choice.fanta));
 	});
 });
