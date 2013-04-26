@@ -36,20 +36,21 @@ describe("Vendingmachine", function () {
 	it("choiceless_machine_delivers_nothing", function () {
 		assert(machine.deliver());
 		expect(Can.none).toEqual(machine.deliver(Choice.cola));
-	//	expect(Can.none).toEqual(machine.deliver(Choice.fanta));
+		expect(Can.none).toEqual(machine.deliver(Choice.fanta));
+	});
+
+
+	it("delivers_can_of_choice", function () {
+		machine.configure(Choice.cola, Can.cola, 10);
+		machine.configure(Choice.fanta, Can.fanta, 10);
+		machine.configure(Choice.sprite, Can.sprite, 10);
+		expect(Can.cola).toEqual(machine.deliver(Choice.cola));
+	//	assertEquals(Can.fanta, machine.deliver(Choice.fanta));
+	//	assertEquals(Can.sprite, machine.deliver(Choice.sprite));
 	});
 });
 
 /*
-	public void Testdelivers_can_of_choice() {
-		machine.configure(Choice.cola, Can.cola, 10);
-		machine.configure(Choice.fanta, Can.fanta, 10);
-		machine.configure(Choice.sprite, Can.sprite, 10);
-		assertEquals(Can.cola, machine.deliver(Choice.cola));
-		assertEquals(Can.fanta, machine.deliver(Choice.fanta));
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-	}
-
 	public void Testdelivers_nothing_when_making_invalid_choice() {
 		machine.configure(Choice.cola, Can.cola, 10);
 		machine.configure(Choice.fanta, Can.fanta, 10);
