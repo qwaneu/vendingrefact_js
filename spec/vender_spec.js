@@ -25,8 +25,8 @@ var VendingMachine = function() {
 */
 describe("Vendingmachine", function () {
 	var machine;
-//	var Can = misc.Can;
-//	var Choice = misc.Choice;
+	var Can = misc.Can;
+	var Choice = misc.Choice;
 
 
 	before(function() {
@@ -35,7 +35,7 @@ describe("Vendingmachine", function () {
 
 	it("choiceless_machine_delivers_nothing", function () {
 		assert(machine.deliver());
-//		expect(Can.none).toEqual(machine.deliver(Choice.cola));
+		expect(Can.none).toEqual(machine.deliver(Choice.cola));
 	//	expect(Can.none).toEqual(machine.deliver(Choice.fanta));
 	});
 });
