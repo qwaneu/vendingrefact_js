@@ -16,7 +16,14 @@ describe("ContainerManager", function () {
 
 	it("has not what it does not put", function() {
 		var manager = new misc.ContainerManager();
-		expect(false).toEqual(manager.containsKey("key"));
+		assert(!manager.containsKey("notput"));
+	});
+
+
+	it("has what it puts", function() {
+		var manager = new misc.ContainerManager();
+		manager.put("kie", "putted");
+		assert(manager.containsKey("kie"));
 	});
 
 });
