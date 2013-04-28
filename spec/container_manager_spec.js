@@ -66,4 +66,13 @@ describe("Chipknip", function () {
 		var ck = new misc.Chipknip(10);
 		assert(ck.HasValue(5));
 	});
+
+	it("can reduce credits", function() {
+		var ck = new misc.Chipknip(10);
+		ck.Reduce(1);
+		assert(ck.HasValue(9));
+		assert(!ck.HasValue(10));
+		assert(9, ck.credits);
+
+	});
 });
