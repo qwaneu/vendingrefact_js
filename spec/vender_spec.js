@@ -97,15 +97,16 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	});
 
-
-}); /*
-	public void Testreturns_change() {
+	it("returns_change", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.set_value(2);
 		buster.assert.equals(2, machine.get_change());
 		buster.assert.equals(0, machine.get_change());
-	}
+	});
 
+
+
+}); /*
 	public void Teststock() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
