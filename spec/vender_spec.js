@@ -105,14 +105,12 @@ describe("Vendingmachine", function () {
 	});
 
 
-
-}); /*
-	public void Teststock() {
+	it("stock", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
-	}
-
+	});
+}); /*
 	public void Testadd_stock() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
