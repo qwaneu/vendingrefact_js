@@ -27,6 +27,7 @@ describe("Vendingmachine", function () {
 	var machine;
 	var Can = misc.Can;
 	var Choice = misc.Choice;
+	var Chipknip = misc.Chipknip;
 
 
 	before(function() {
@@ -117,17 +118,16 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
-	}
+	});
 
-}); /*
-
-	public void Testcheckout_chip_if_chipknip_inserted() {
+	it("checkout_chip_if_chipknip_inserted", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
-		Chipknip chip = new Chipknip(10);
+	    var chip = new Chipknip(10);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(9, chip.credits);
-	}
+	});
+}); /*
 
 	public void Testcheckout_chip_empty() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);

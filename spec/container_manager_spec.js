@@ -59,3 +59,11 @@ describe("ContainerManager", function () {
 	});
 
 });
+
+describe("Chipknip", function () {
+
+	it('has value', function () {
+		var ck = new misc.Chipknip(10);
+		assert(ck.HasValue(5));
+	});
+});
