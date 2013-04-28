@@ -65,26 +65,25 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.fanta));
 	});
 
-
-
-}); /*
-	public void Testdelivers_fanta_when_paid() {
+	it("delivers_fanta_when_paid", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 
 		machine.set_value(2);
-		assertEquals(Can.fanta, machine.deliver(Choice.fanta));
-		assertEquals(Can.none, machine.deliver(Choice.sprite));
-	}
+		buster.assert.equals(Can.fanta, machine.deliver(Choice.fanta));
+		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
+	});
 
+
+}); /*
 	public void Testdelivers_sprite_when_paid() {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 
 		machine.set_value(2);
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.none, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	}
 
 	public void Testadd_payments() {
@@ -93,45 +92,45 @@ describe("Vendingmachine", function () {
 
 		machine.set_value(1);
 		machine.set_value(1);
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.none, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	}
 
 	public void Testreturns_change() {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.set_value(2);
-		assertEquals(2, machine.get_change());
-		assertEquals(0, machine.get_change());
+		buster.assert.equals(2, machine.get_change());
+		buster.assert.equals(0, machine.get_change());
 	}
 
 	public void Teststock() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.none, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	}
 
 	public void Testadd_stock() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(Can.none, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	}
 
 	public void Testcheckout_chip_if_chipknip_inserted() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
 		Chipknip chip = new Chipknip(10);
 		machine.insert_chip(chip);
-		assertEquals(Can.sprite, machine.deliver(Choice.sprite));
-		assertEquals(9, chip.credits);
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		buster.assert.equals(9, chip.credits);
 	}
 
 	public void Testcheckout_chip_empty() {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
 		Chipknip chip = new Chipknip(0);
 		machine.insert_chip(chip);
-		assertEquals(Can.none, machine.deliver(Choice.sprite));
-		assertEquals(0, chip.credits);
+		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
+		buster.assert.equals(0, chip.credits);
 	}
 	*/
