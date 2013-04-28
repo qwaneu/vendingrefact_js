@@ -58,15 +58,16 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.beer));
 	});
 
-}); /*
 	it("delivers_nothing_when_not_paid()", function () {
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 
-		assertEquals(Can.none, machine.deliver(Choice.fanta));
+		buster.assert.equals(Can.none, machine.deliver(Choice.fanta));
 	});
 
 
+
+}); /*
 	public void Testdelivers_fanta_when_paid() {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
