@@ -40,27 +40,25 @@ describe("Vendingmachine", function () {
 		expect(Can.none).toEqual(machine.deliver(Choice.fanta));
 	});
 
-/*	it("delivers_can_of_choice", function () {
+	it("delivers_can_of_choice", function () {
 		machine.configure(Choice.cola, Can.cola, 10);
 		machine.configure(Choice.fanta, Can.fanta, 10);
 		machine.configure(Choice.sprite, Can.sprite, 10);
 		machine.deliver(Choice.cola);
-		buster.assert(true);
-	//	buster.assert.equals(Can.cola, machine.deliver(Choice.cola));
-	//	expect(Can.fanta).toEqual(machine.deliver(Choice.fanta));
-	//	expect(Can.sprite).toEqual(machine.deliver(Choice.sprite));
+		buster.assert.equals(Can.cola, machine.deliver(Choice.cola));
+		expect(Can.fanta).toEqual(machine.deliver(Choice.fanta));
+		expect(Can.sprite).toEqual(machine.deliver(Choice.sprite));
 	});
-*/
-});
-/*
+
 
 	it("delivers_nothing_when_making_invalid_choice()", function() {
 		machine.configure(Choice.cola, Can.cola, 10);
 		machine.configure(Choice.fanta, Can.fanta, 10);
 		machine.configure(Choice.sprite, Can.sprite, 10);
-		assertEquals(Can.none, machine.deliver(Choice.beer));
+		buster.assert.equals(Can.none, machine.deliver(Choice.beer));
 	});
 
+}); /*
 	it("delivers_nothing_when_not_paid()", function () {
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
@@ -68,7 +66,7 @@ describe("Vendingmachine", function () {
 		assertEquals(Can.none, machine.deliver(Choice.fanta));
 	});
 
-/*
+
 	public void Testdelivers_fanta_when_paid() {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
