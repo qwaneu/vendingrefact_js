@@ -86,8 +86,7 @@ describe("Vendingmachine", function () {
 	});
 
 
-}); /*
-	public void Testadd_payments() {
+	it("adds_payments", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 
@@ -96,8 +95,10 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
-	}
+	});
 
+
+}); /*
 	public void Testreturns_change() {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.set_value(2);
