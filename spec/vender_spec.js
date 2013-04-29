@@ -128,12 +128,18 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(9, chip.getCredits());
 	});
 
+	/*
+		when debugging, chipknip._credits changes during the call of chipknip.Reduce(),
+		and the credits property changes in a unit test directly on chipknip,
+		but on the outside in the machine, .credits doesn't change, while .getCredits()
+		does reflect the change (see previous test)
+	*/
 	it("defect on chipknip credits propery. Does not reduce value", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
 	    var chip = new Chipknip(5);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
-		//we expected next value to be 9
+		//we expected next value to be 4, but get 5 instead. getCredits() reflects real value
 		buster.assert.equals(5, chip.credits);
 	});
 
