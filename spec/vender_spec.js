@@ -125,8 +125,18 @@ describe("Vendingmachine", function () {
 	    var chip = new Chipknip(10);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
-		buster.assert.equals(9, chip.credits);
+		buster.assert.equals(9, chip.getCredits());
 	});
+
+	it("defect on chipknip credits propery. Does not reduce value", function () {
+		machine.configure(Choice.sprite, Can.sprite, 1, 1);
+	    var chip = new Chipknip(10);
+		machine.insert_chip(chip);
+		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
+		//we expected next value to be 9
+		buster.assert.equals(10, chip.credits);
+	});
+
 }); /*
 
 	public void Testcheckout_chip_empty() {
