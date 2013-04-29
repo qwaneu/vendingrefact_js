@@ -87,7 +87,7 @@ describe("Vendingmachine", function () {
 	});
 
 
-	it("adds_payments", function () {
+	it("adds payments", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 
@@ -98,7 +98,7 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	});
 
-	it("returns_change", function () {
+	it("returns change", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.set_value(2);
 		buster.assert.equals(2, machine.get_change());
@@ -130,20 +130,19 @@ describe("Vendingmachine", function () {
 
 	it("defect on chipknip credits propery. Does not reduce value", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
-	    var chip = new Chipknip(10);
+	    var chip = new Chipknip(5);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		//we expected next value to be 9
-		buster.assert.equals(10, chip.credits);
+		buster.assert.equals(5, chip.credits);
 	});
 
-}); /*
-
-	public void Testcheckout_chip_empty() {
+	it("checkout_chip_empty", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
-		Chipknip chip = new Chipknip(0);
+	 	var chip = new Chipknip(0);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 		buster.assert.equals(0, chip.credits);
-	}
-	*/
+	});
+
+});
