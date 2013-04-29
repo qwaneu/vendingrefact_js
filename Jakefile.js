@@ -15,7 +15,7 @@
 
     desc("Lint everything");
     task("lint", ["node"], function () {
-        var lint = require("./build/lint/lint_runner.js");
+        var lint = require("./lib/support/lint_runner.js");
 
         var files = new jake.FileList();
         files.include("**/*.js");
@@ -26,7 +26,7 @@
 
     // `node --version`
     task("node", [], function() {
-        var NODE_VERSION = "v0.10.5\n";
+        var NODE_VERSION = "v0.8.6\n";
 
         sh("node --version", function(stdout){
             if (stdout !== NODE_VERSION) fail("Incorrect node version. Expected " + NODE_VERSION);
