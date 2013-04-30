@@ -1,3 +1,4 @@
+/* global describe, it, expect, assert, before */
 "use strict";
 
 var buster = require("buster");
@@ -111,7 +112,7 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	});
-	
+
 	it("adds stock", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
@@ -122,7 +123,7 @@ describe("Vendingmachine", function () {
 
 	it("checkout_chip_if_chipknip_inserted", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
-	    var chip = new Chipknip(10);
+		var chip = new Chipknip(10);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(9, chip.getCredits());
@@ -136,7 +137,7 @@ describe("Vendingmachine", function () {
 	*/
 	it("defect on chipknip credits propery. Does not reduce value", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
-	    var chip = new Chipknip(5);
+		var chip = new Chipknip(5);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		//we expected next value to be 4, but get 5 instead. getCredits() reflects real value
@@ -145,7 +146,7 @@ describe("Vendingmachine", function () {
 
 	it("checkout_chip_empty", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
-	 	var chip = new Chipknip(0);
+		var chip = new Chipknip(0);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 		buster.assert.equals(0, chip.credits);

@@ -1,3 +1,4 @@
+/* global describe, it, expect, assert, before */
 "use strict";
 
 var buster = require("buster");
@@ -10,7 +11,7 @@ describe("Can", function () {
 
 	it("can be none", function() {
 		expect(misc.Can.none).toEqual("none");
-	})
+	});
 });
 
 
@@ -18,21 +19,21 @@ describe("CanContainer", function () {
 
 	it("has type", function() {
 		var container = new misc.CanContainer();
-		expect(container.setType("cola"))
+		expect(container.setType("cola"));
 		expect(container.getType()).toEqual("cola");
 	});
 
 
 	it("has price", function() {
 		var container = new misc.CanContainer();
-		expect(container.setPrice(1))
+		expect(container.setPrice(1));
 		expect(container.getPrice()).toEqual(1);
 	});
 
 
 	it("has amount", function() {
 		var container = new misc.CanContainer();
-		expect(container.setAmount(10))
+		expect(container.setAmount(10));
 		expect(container.getAmount()).toEqual(10);
 	});
 });

@@ -2,7 +2,7 @@
 (function () {
     "use strict";
 
-    task("default", ["lint", "test"]);
+    task("default", ["lint", "spec"]);
 
     desc("Unit tests");
     task("test", ["node"], function(){
@@ -13,12 +13,24 @@
         });
     }, {async:true} );
 
+    task('spec', {async: true}, function () {
+      var cmds = [
+        'node ./node_modules/.bin/buster-test -c spec/buster.js'
+      ];
+      jake.exec(cmds, {printStdout: true, printStderr: true}, function () {
+        console.log('All tests passed.');
+        complete();
+      });
+    });
+
+
     desc("Lint everything");
     task("lint", ["node"], function () {
         var lint = require("./lib/support/lint_runner.js");
 
         var files = new jake.FileList();
-        files.include("**/*.js");
+        files.include("spec/**/*.js");
+        files.include("lib/**/*.js");
         files.exclude("node_modules");
         var passed = lint.validateFileList(files.toArray(), nodeLintOptions(), {});
         if (!passed) fail("Lint failed");
