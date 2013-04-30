@@ -35,7 +35,7 @@ describe("Vendingmachine", function () {
 		machine = new vending.VendingMachine();
 	});
 
-
+/*
 	it("choiceless_machine_delivers_nothing", function () {
 		assert(machine.deliver());
 		expect(Can.none).toEqual(machine.deliver(Choice.cola));
@@ -66,7 +66,7 @@ describe("Vendingmachine", function () {
 
 		buster.assert.equals(Can.none, machine.deliver(Choice.fanta));
 	});
-
+*/
 	it("delivers_fanta_when_paid", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
@@ -76,7 +76,7 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	});
 
-
+/*
 	it("delivers sprite when paid", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
@@ -128,20 +128,21 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(9, chip.getCredits());
 	});
-
+*/
 	/*
 		when debugging, chipknip._credits changes during the call of chipknip.Reduce(),
 		and the credits property changes in a unit test directly on chipknip,
 		but on the outside in the machine, .credits doesn't change, while .getCredits()
-		does reflect the change (see previous test)
+		does reflect the change.
 	*/
-	it("defect on chipknip credits propery. Does not reduce value", function () {
+/*	it("defect on chipknip credits property. Does not reduce value", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
 		var chip = new Chipknip(5);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		//we expected next value to be 4, but get 5 instead. getCredits() reflects real value
 		buster.assert.equals(5, chip.credits);
+		buster.assert.equals(4, chip.getCredits());
 	});
 
 	it("checkout_chip_empty", function () {
@@ -151,5 +152,5 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 		buster.assert.equals(0, chip.credits);
 	});
-
+*/
 });
