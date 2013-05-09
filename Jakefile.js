@@ -4,22 +4,13 @@
 
     task("default", ["lint", "spec"]);
 
- //   desc("Unit tests");
- //   task("test", ["node"], function(){
- //       var reporter = require('nodeunit').reporters['default'];
- //       reporter.run(['src/server/_server_test.js'], null, function(failures){
- //           if (failures) fail("tests failed");
- //           complete();
- //       });
- //   }, {async:true} );
-
     task('spec', {async: true}, function () {
       var cmds = [
         'node ./node_modules/.bin/buster-test -c spec/buster.js'
       ];
       sh('node ./node_modules/.bin/buster-test', function (out) {
-         console.log(out);
-         complete();
+        console.log(out);
+        complete();
       }, function(out) {
         console.log(out);
         fail('specs failed');
@@ -49,18 +40,21 @@
     }, {async: true});
 
     function sh(command, callback, error_callback) {
-        var stdout = "";
-        var process = jake.createExec(command, {printStdout:true, printStderr: true});
-        process.on("stdout", function(chunk) {
-            stdout += chunk;
-        });
-        process.on("cmdEnd", function() {
-            callback(stdout);
-        });
-        process.on("error", function() {
-            error_callback(stdout);
-        });
-        process.run();
+      var stdout = "";
+      var process = jake.createExec(command, {printStdout:true, printStderr: true});
+      process.on("stdout", function(chunk) {
+        stdout += chunk;
+      });
+      process.on("stderr", function(chunk) {
+        stdout += chunk;
+      });
+      process.on("cmdEnd", function() {
+        callback(stdout);
+      });
+      process.on("error", function() {
+        error_callback(stdout);
+      });
+      process.run();
     }
 
     function nodeLintOptions() {
