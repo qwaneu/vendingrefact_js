@@ -1,8 +1,9 @@
 var config = module.exports;
 
 config["Unit Tests"] = {
-  env: "node",        // or "node"
+  env: "node",
+  rootPath: "../",
   specs: [
-    "**/*_spec.js"
+    "spec/**/*_spec.js"
   ]
 };

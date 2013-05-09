@@ -4,25 +4,27 @@
 
     task("default", ["lint", "spec"]);
 
-    desc("Unit tests");
-    task("test", ["node"], function(){
-        var reporter = require('nodeunit').reporters['default'];
-        reporter.run(['src/server/_server_test.js'], null, function(failures){
-            if (failures) fail("tests failed");
-            complete();
-        });
-    }, {async:true} );
+ //   desc("Unit tests");
+ //   task("test", ["node"], function(){
+ //       var reporter = require('nodeunit').reporters['default'];
+ //       reporter.run(['src/server/_server_test.js'], null, function(failures){
+ //           if (failures) fail("tests failed");
+ //           complete();
+ //       });
+ //   }, {async:true} );
 
     task('spec', {async: true}, function () {
       var cmds = [
         'node ./node_modules/.bin/buster-test -c spec/buster.js'
       ];
-      jake.exec(cmds, {printStdout: true, printStderr: true}, function () {
-        console.log('All tests passed.');
-        complete();
+      sh('node ./node_modules/.bin/buster-test', function (out) {
+         console.log(out);
+         complete();
+      }, function(out) {
+        console.log(out);
+        fail('specs failed');
       });
     });
-
 
     desc("Lint everything");
     task("lint", ["node"], function () {
@@ -38,7 +40,7 @@
 
     // `node --version`
     task("node", [], function() {
-        var NODE_VERSION = "v0.8.6\n";
+        var NODE_VERSION = "v0.10.5\n";
 
         sh("node --version", function(stdout){
             if (stdout !== NODE_VERSION) fail("Incorrect node version. Expected " + NODE_VERSION);
@@ -46,7 +48,7 @@
         });
     }, {async: true});
 
-    function sh(command, callback) {
+    function sh(command, callback, error_callback) {
         var stdout = "";
         var process = jake.createExec(command, {printStdout:true, printStderr: true});
         process.on("stdout", function(chunk) {
@@ -54,6 +56,9 @@
         });
         process.on("cmdEnd", function() {
             callback(stdout);
+        });
+        process.on("error", function() {
+            error_callback(stdout);
         });
         process.run();
     }
