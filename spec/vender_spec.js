@@ -5,37 +5,18 @@ var buster = require("buster");
 var vending = require("../lib/vending");
 var misc = require("../lib/can");
 
-buster.spec.expose(); //expose spec functions describe() and it()
+buster.spec.expose();
 
-/*
-var VendingMachine = function() { 
-	this.cans = {};
-	this.choice = "";
-	var amountPaid = 0;
-	var that = this;
-	
-	
-	function dispense() {
-		return "nothing";
-	}
-
-	//public methods on instance. Consumes memory for each object
-	this.deliver = dispense;
-	
-}
-*/
 describe("Vendingmachine", function () {
 	var machine;
 	var Can = misc.Can;
 	var Choice = misc.Choice;
 	var Chipknip = misc.Chipknip;
 
-
 	before(function() {
 		machine = new vending.VendingMachine();
 	});
 
-/*
 	it("choiceless_machine_delivers_nothing", function () {
 		assert(machine.deliver());
 		expect(Can.none).toEqual(machine.deliver(Choice.cola));
@@ -66,8 +47,8 @@ describe("Vendingmachine", function () {
 
 		buster.assert.equals(Can.none, machine.deliver(Choice.fanta));
 	});
-*/
-	it("delivers_fanta_when_paid", function () {
+
+  it("delivers_fanta_when_paid", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
 
@@ -76,7 +57,6 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	});
 
-/*
 	it("delivers sprite when paid", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
 		machine.configure(Choice.fanta, Can.fanta, 10, 2);
@@ -86,7 +66,6 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 	});
-
 
 	it("adds payments", function () {
 		machine.configure(Choice.sprite, Can.sprite, 10, 1);
@@ -105,7 +84,6 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(2, machine.get_change());
 		buster.assert.equals(0, machine.get_change());
 	});
-
 
 	it("stock", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 0);
@@ -128,14 +106,13 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(Can.sprite, machine.deliver(Choice.sprite));
 		buster.assert.equals(9, chip.getCredits());
 	});
-*/
 	/*
 		when debugging, chipknip._credits changes during the call of chipknip.Reduce(),
 		and the credits property changes in a unit test directly on chipknip,
 		but on the outside in the machine, .credits doesn't change, while .getCredits()
 		does reflect the change.
 	*/
-/*	it("defect on chipknip credits property. Does not reduce value", function () {
+	it("defect on chipknip credits property. Does not reduce value", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
 		var chip = new Chipknip(5);
 		machine.insert_chip(chip);
@@ -145,12 +122,11 @@ describe("Vendingmachine", function () {
 		buster.assert.equals(4, chip.getCredits());
 	});
 
-	it("checkout_chip_empty", function () {
+  it("checkout_chip_empty", function () {
 		machine.configure(Choice.sprite, Can.sprite, 1, 1);
 		var chip = new Chipknip(0);
 		machine.insert_chip(chip);
 		buster.assert.equals(Can.none, machine.deliver(Choice.sprite));
 		buster.assert.equals(0, chip.credits);
 	});
-*/
 });
