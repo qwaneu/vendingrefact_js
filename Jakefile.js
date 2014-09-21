@@ -5,10 +5,7 @@
     task("default", ["lint", "spec"]);
 
     task('spec', {async: true}, function () {
-      var cmds = [
-        'node ./node_modules/.bin/buster-test -c spec/buster.js'
-      ];
-      sh('node ./node_modules/.bin/buster-test', function (out) {
+      sh('node ./node_modules/.bin/buster-test --reporter specification', function (out) {
         console.log(out);
         complete();
       }, function(out) {
@@ -18,13 +15,14 @@
     });
 
     desc("Lint everything");
-    task("lint", ["node"], function () {
+    task("lint", [], function () {
         var lint = require("./lib/support/lint_runner.js");
 
         var files = new jake.FileList();
         files.include("spec/**/*.js");
         files.include("lib/**/*.js");
         files.exclude("node_modules");
+        files.exclude("spec/helper.js");
         var passed = lint.validateFileList(files.toArray(), nodeLintOptions(), {});
         if (!passed) fail("Lint failed");
     });
