@@ -1,9 +1,6 @@
-var config = module.exports;
-
-config["Unit Tests"] = {
+module.exports["Unit Tests" ] = {
   env: "node",
   rootPath: "../",
-  specs: [
-    "spec/**/*_spec.js"
-  ]
+  specs: ["spec/**/*_spec.js"],
+  testHelpers: ["spec/helper.js"]
 };

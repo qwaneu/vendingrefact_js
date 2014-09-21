@@ -14,5 +14,8 @@
     "node": "~0.4.12"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "buster": "0.7.14",
+    "underscore" : "~1.7.0"
+  }
 }
