@@ -1,6 +1,6 @@
 {
   "author": "willem van den ende",
-  "name": "js_buster",
+  "name": "jasmine",
   "description": "exercise for javascript unit testing with buster",
   "version": "0.0.0",
   "repository": {
@@ -8,16 +8,10 @@
     "url": "ssh://git.qwan.it/home/git/exercises/vendingmachine.git"
   },
   "scripts": {
-    "test": "buster"
-  },
-  "engines": {
-    "node": "~0.4.12"
-  },
-  "dependencies": {},
+        "test": "./node_modules/.bin/jasmine-node spec",
+        "autotest": "./node_modules/.bin/jasmine-node spec --autotest"
+   },
   "devDependencies": {
-    "jshint" : "~2.5.6",
-    "jake" : "~8.0.9",
-    "buster": "~0.7.14",
-    "underscore" : "~1.7.0"
+    "jasmine-node": "^1.14.5"
   }
 }

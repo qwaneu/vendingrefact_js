@@ -4,3 +4,4 @@ src/obj/
 unittests/bin/
 unittests/obj/
 *.suo
+node_modules/
