@@ -1,17 +1,29 @@
 {
-  "author": "willem van den ende",
-  "name": "jasmine",
-  "description": "exercise for javascript unit testing with buster",
-  "version": "0.0.0",
+  "author": "QWAN - Quality Without a Name",
+  "name": "vendingmachine_js",
+  "description": "Exercise for code smells & refactoring with JavaScript and Jasmine",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "ssh://git.qwan.it/home/git/exercises/vendingmachine.git"
+    "url": "https://github.com/qwaneu/vendingrefact_js"
+  },
+  "watch": {
+    "test": {
+      "patterns": ["lib", "spec"],
+      "extensions": "js",
+      "quiet": true
+    }
   },
   "scripts": {
-        "test": "./node_modules/.bin/jasmine-node spec",
-        "autotest": "./node_modules/.bin/jasmine-node spec --autotest"
-   },
+    "test": "./node_modules/.bin/jasmine-node spec"
+  },
   "devDependencies": {
-    "jasmine-node": "^1.14.5"
+    "jshint": "^2.12.0",
+    "jasmine-node": "^3.0.0",
+    "npm-check": "^5.9.2",
+    "npm-watch": "^0.7.0"
+  },
+  "dependencies": {
+    "underscore": "^1.12.0"
   }
 }

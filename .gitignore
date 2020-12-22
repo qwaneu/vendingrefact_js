@@ -1,7 +1,2 @@
-.DS_Store
-src/bin/
-src/obj/
-unittests/bin/
-unittests/obj/
-*.suo
 node_modules/
+.idea

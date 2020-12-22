@@ -1,7 +1,7 @@
 "use strict";
 
-var vending = require("./vendingmachine.js");
-var misc = require("./can.js");
+var vending = require("../lib/vendingmachine.js");
+var misc = require("../lib/can.js");
 
 describe("Vendingmachine", function () {
   var machine;

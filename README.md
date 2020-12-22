@@ -1,17 +1,17 @@
-# installation
+# Vendingmachine Refuctored - JavaScript version
 
-```
+First install all dependencies:
+```bash
 npm install
 ```
 
-# Running
+And then run all unit tests continuously:
 
-```
-npm run test
+```bash
+npm-watch test
 ```
 
-run continuously
+(c) copyright QWAN - Quality Without a Name, https://www.qwan.eu
 
-```
-npm run watch
-```
+Get our Code Smells & Refactoring cards:
+https://www.qwan.eu/shop

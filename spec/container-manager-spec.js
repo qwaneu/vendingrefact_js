@@ -1,6 +1,6 @@
 "use strict";
 
-var misc = require("./can.js");
+var misc = require("../lib/can.js");
 
 describe("Can", function () {
   it("can be none", function() {
