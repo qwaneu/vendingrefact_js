@@ -1,9 +1,3 @@
-(c) copyright QWAN - Quality Without a Name, https://www.qwan.eu
-
-Get our Code Smells & Refactoring cards:
-https://www.qwan.eu/shop
-
-
 Description
 ===========
 
