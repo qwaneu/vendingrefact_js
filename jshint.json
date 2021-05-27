@@ -1,0 +1,21 @@
+{
+  "globals": {
+    "require": false,
+    "expect": false,
+    "describe": false,
+    "beforeEach": false,
+    "it": false,
+    "document": false
+  },
+  "bitwise": true,
+  "curly": false,
+  "eqeqeq": true,
+  "esversion": 6,
+  "forin": true,
+  "latedef": true,
+  "noarg": true,
+  "nonew": true,
+  "strict": true,
+  "undef": true,
+  "node": true
+}

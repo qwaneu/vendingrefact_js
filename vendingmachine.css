@@ -1,0 +1,29 @@
+#panel {
+    float:left;
+    width: 50%;
+}
+
+#choices {
+    float: left;
+    width: 35%;
+}
+
+#coinslot {
+    float: left;
+    width: 35%;
+}
+
+#display {
+    float: right;
+    width: 30%;
+    height: 40px;
+    border: ridge;
+}
+
+#bincontainer {
+    float: left;
+    clear: both;
+    border: double;
+    width: 100%;
+    height: 80px;
+}

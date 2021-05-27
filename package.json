@@ -1,29 +1,41 @@
 {
   "author": "QWAN - Quality Without a Name",
-  "name": "vendingmachine_js",
+  "name": "vendingrefact_js",
   "description": "Exercise for code smells & refactoring with JavaScript and Jasmine",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/qwaneu/vendingrefact_js"
   },
   "watch": {
     "test": {
-      "patterns": ["lib", "spec"],
+      "patterns": [
+        "lib",
+        "spec"
+      ],
       "extensions": "js",
       "quiet": true
     }
   },
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node spec"
+    "test": "jasmine spec/**/*.js",
+    "watch_test": "npm-watch test",
+    "jshint": "jshint --config jshint.json spec/*.js lib/*.js",
+    "bundle": "webpack lib/app.js dist/bundle.js"
   },
-  "devDependencies": {
-    "jshint": "^2.12.0",
-    "jasmine-node": "^3.0.0",
-    "npm-check": "^5.9.2",
-    "npm-watch": "^0.7.0"
+  "engines": {
+    "node": "~8.9.4"
   },
   "dependencies": {
-    "underscore": "^1.12.0"
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {
+    "jasmine": "~2.8.0",
+    "jsdom": "^15.2.1",
+    "canvas": "^2.5.0",
+    "jshint": "^2.10.3",
+    "npm-watch": "^0.3.0",
+    "webpack": "^3.6.0"
   }
 }
